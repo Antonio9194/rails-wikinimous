@@ -1,10 +1,16 @@
-<div>
-  <%= @article.title %>
+<div class="article-container">
+  <h2><%= @article.title %></h2>
+
+  <div class="article-actions">
+    <%= link_to "Edit", edit_article_path(@article) %>
+
+    <%= link_to article_path(@article),
+                data: { turbo_method: :delete, turbo_confirm: "Are you certain, my lord?" } do %>
+      <i class="fa-solid fa-trash-can"></i> Delete
+    <% end %>
+  </div>
+
+  <p><%= @article.content %></p>
+
+  <%= link_to "← Back to list", articles_path, class: "back-link" %>
 </div>
-
-
-<div>
-  <%= @article.content %>
-</div>
-
-<%= link_to "Back to list", articles_path%>

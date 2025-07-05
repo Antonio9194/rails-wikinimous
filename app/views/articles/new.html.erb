@@ -1,4 +1,5 @@
-<%= form_with model: @article do |f| %>
+<div>
+  <%= form_with model: @article do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
 
@@ -7,3 +8,5 @@
 
   <%= f.submit %>
 <% end %>
+<%= link_to "← Back to list", articles_path, class: "back-link" %>
+</div>
